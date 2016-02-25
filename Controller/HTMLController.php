@@ -18,9 +18,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Controllers;
+namespace Controller;
 
-use Models\Message;
+use Model\Message;
 use View\View;
 
 abstract class HTMLController {

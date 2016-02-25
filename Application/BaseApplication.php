@@ -1,4 +1,4 @@
-s<?php
+<?php
 /**
  * yabs - Yet another blog system
  * Copyright (C) 2014 Daniel Triendl <daniel@pew.cc>
@@ -19,10 +19,9 @@ s<?php
 namespace Application;
 
 class BaseApplication {
-	protected $app_root;
 
 	public function __construct($app_root) {
-		$this->app_root = $app_root;
+		Registry::getInstance()->app_root = $app_root;
 	}
 
 	protected function init() {
@@ -44,12 +43,13 @@ class BaseApplication {
 	 * Load application config
 	 */
 	protected function loadConfig() {
-		if (file_exists($this->app_root . '/Application/config.php')) {
-			require_once $this->app_root . '/Application/config.php';
+		$app_root = Registry::getInstance()->app_root;
+		if (file_exists($app_root . '/Application/config.php')) {
+			require_once $app_root . '/Application/config.php';
 		}
 
-		if (file_exists($this->app_root . '/Application/localconfig.php')) {
-			require_once $this->app_root . '/Application/localconfig.php';
+		if (file_exists($app_root . '/Application/localconfig.php')) {
+			require_once $app_root . '/Application/localconfig.php';
 		}
 
 		if (isset($config)) {

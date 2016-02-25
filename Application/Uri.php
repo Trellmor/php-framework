@@ -20,7 +20,7 @@
  */
 namespace Application;
 
-use Application\Exceptions\UriException;
+use Application\Exception\UriException;
 
 class Uri {
 	private static $base = null;

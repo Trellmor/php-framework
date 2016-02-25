@@ -23,9 +23,6 @@ namespace Application;
 class Router extends Singleton {
 	private $routes = array ();
 
-	private function __construct() {
-	}
-
 	public function addRoute($route) {
 		$this->routes[] = $route;
 	}

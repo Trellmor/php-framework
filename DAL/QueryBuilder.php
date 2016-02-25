@@ -21,7 +21,7 @@
 namespace DAL;
 
 use Application\Registry;
-use Application\Exceptions\QueryBuilderException;
+use Application\Exception\QueryBuilderException;
 
 abstract class QueryBuilder {
 	protected $table = NULL;

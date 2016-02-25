@@ -20,7 +20,7 @@
  */
 namespace Application\Crypto;
 
-use Application\Exceptions\RNGException;
+use Application\Exception\RNGException;
 
 class SecureRandom {
 

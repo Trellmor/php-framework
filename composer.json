@@ -11,9 +11,9 @@
 	"autoload": {
 		"psr-4": {
 			"Application\\": "Application/",
-			"Controllers\\": "Controllers/",
+			"Controller\\": "Controller/",
 			"DAL\\": "DAL/",
-			"Models\\": "Models/",
+			"Model\\": "Model/",
 			"View\\": "View/"
 		}
 	}

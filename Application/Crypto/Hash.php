@@ -20,7 +20,7 @@
  */
 namespace Application\Crypto;
 
-use Application\Exceptions\HashException;
+use Application\Exception\HashException;
 
 abstract class Hash {
 

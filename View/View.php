@@ -20,7 +20,8 @@
  */
 namespace View;
 
-use Application\Exceptions\InvalidViewException;
+use Application\Exception\InvalidViewException;
+use Application\Registry;
 
 class View {
 	private $template;
@@ -52,7 +53,7 @@ class View {
 	}
 
 	public function load($view) {
-		$file = __DIR__ . '/' . $this->template . '/' . $view . '.php';
+		$file = Registry::getInstance()->app_root . '/View/' . $this->template . '/' . $view . '.php';
 
 		if (file_exists($file)) {
 			extract($this->vars, EXTR_REFS);
