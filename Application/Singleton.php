@@ -25,7 +25,7 @@ abstract class Singleton {
 
 	public function __destruct() {
 		$class = get_called_class();
-		unset(self::$instance[$class]);
+		unset(self::$instances[$class]);
 	}
 
 	public static function getInstance() {
