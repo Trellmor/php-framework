@@ -1,0 +1,20 @@
+{
+	"name": "trellmor/php-framework",
+	"description": "A php framework for Trellmor's websites",
+	"license": "AGPLv3",
+	"authors": [
+		{
+			"name": "Daniel Triendl",
+			"email": "daniel@pew.cc"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Application\\": "Application/",
+			"Controllers\\": "Controllers/",
+			"DAL\\": "DAL/",
+			"Models\\": "Models/",
+			"View\\": "View/"
+		}
+	}
+}
