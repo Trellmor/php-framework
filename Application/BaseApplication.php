@@ -29,8 +29,7 @@ class BaseApplication {
 
 		$this->loadConfig();
 
-		Session::start();
-		Input::restore();
+		$this->startSession();
 	}
 
 	protected function checkPHPVersion() {
@@ -55,6 +54,11 @@ class BaseApplication {
 		if (isset($config)) {
 			Registry::getInstance()->config = $config;
 		}
+	}
+
+	protected function startSession() {
+		Session::start();
+		Input::restore();
 	}
 
 	public function run() {
