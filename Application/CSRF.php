@@ -23,6 +23,7 @@ namespace Application;
 use Application\Crypto;
 use Application\Crypto\SecureRandom;
 use Application\Crypto\Utils;
+use Application\Crypto\HMAC;
 
 class CSRF {
 	private static $name = 'csrf_token';
@@ -51,21 +52,13 @@ class CSRF {
 	}
 
 	public function hashHMAC($data) {
-		$hash = hash_hmac('sha256', $data, $this->getHMACSecret(), true);
-		return base64_encode($data . $hash);
+		$hmac = new HMAC($this->getHMACSecret());
+		return $hmac->hash($data);
 	}
 
 	public function verifyHMAC($data) {
-		$data = base64_decode($data);
-		if (Utils::binaryStrlen($data) <= 32) {
-			return false;
-		}
-
-		$hash = Utils::binarySubstr($data, -32, 32);
-		$data = Utils::binarySubstr($data, 0, -32);
-
-		$newhash = hash_hmac('sha256', $data, $this->getHMACSecret(), true);
-		return (Utils::compareStr($hash, $newhash)) ? $data : false;
+		$hmac = new HMAC($this->getHMACSecret());
+		return $hmac->verify($data);
 	}
 
 	protected function getHMACSecret() {
