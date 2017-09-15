@@ -53,6 +53,8 @@ class BaseApplication {
 
 		if (isset($config)) {
 			Registry::getInstance()->config = $config;
+		} else {
+			Registry::getInstance()->config = [];
 		}
 	}
 
