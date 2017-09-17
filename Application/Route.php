@@ -24,6 +24,8 @@ class Route {
 	const GET = 'GET';
 	const POST = 'POST';
 	const PUT = 'PUT';
+	const DELETE = 'DELETE';
+	const OPTIONS = 'OPTIONS';
 	private $method;
 	private $class;
 	private $function;
@@ -51,13 +53,21 @@ class Route {
 		return new $c(static::PUT, $class, $function, $url);
 	}
 
+	public static function delete($class, $function, $url) {
+		$c = __CLASS__;
+		return new $c(static::DELETE, $class, $function, $url);
+	}
+
+	public static function options($class, $function, $url) {
+		$c = __CLASS__;
+		return new $c(static::OPTIONS, $class, $function, $url);
+	}
+
 	/**
 	 * Checks if the passed url matches the route.
 	 * If it maches the class
 	 * will be created and the function called with the arguments extracted
 	 * from the url
-	 *
-	 * @param unknown_type $url
 	 */
 	public function matchUrl($method, $url) {
 		if ($this->method == $method) {
