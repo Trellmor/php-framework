@@ -1,7 +1,7 @@
 {
 	"name": "trellmor/php-framework",
 	"description": "A php framework for Trellmor's websites",
-	"license": "AGPLv3",
+	"license": "AGPL-3.0-or-later",
 	"authors": [
 		{
 			"name": "Daniel Triendl",
